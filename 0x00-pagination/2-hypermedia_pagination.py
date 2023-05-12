@@ -5,7 +5,7 @@ integer arguments page and page_size.
 """
 import csv
 import math
-from typing import Tuple, List, Dict
+from typing import Tuple, List, Dict, Any
 
 
 def index_range(page: int, page_size: int) -> Tuple:
@@ -54,7 +54,7 @@ class Server:
         end = size if end > size else end
         return data[start:end]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Any]:
         """
         page : int
         page_size : int
