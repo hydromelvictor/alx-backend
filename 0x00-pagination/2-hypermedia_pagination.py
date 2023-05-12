@@ -68,16 +68,16 @@ class Server:
         i = 0
         for row in dataset:
             i += 1
-            if len(sublist) < page_size or i == size - 1:
+            if len(sublist) < page_size or i == size:
                 sublist.append(row)
-            if len(sublist) == page_size or i == size - 1:
+            if len(sublist) == page_size or i == size:
                 lister.append(sublist)
 
         return {
             "page_size": page_size,
             "page": page,
             "data": data,
-            "next_page": page + 1 if len(data) < size else None,
+            "next_page": page + 1 if page < len(lister) else None,
             "prev_page": page - 1 if page > 1 else None,
             "total_pages": len(lister)
         }
