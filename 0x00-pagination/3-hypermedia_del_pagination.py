@@ -46,7 +46,9 @@ class Server:
         return : dict
         """
         assert index >= 0
+        self.__dataset = self.dataset() if None else self.__dataset
         data = self.__dataset[index:index + page_size]
+
         return {
             "index": index,
             "next_index": index + page_size,
