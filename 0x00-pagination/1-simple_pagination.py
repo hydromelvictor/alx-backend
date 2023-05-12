@@ -42,15 +42,13 @@ class Server:
         page : int
         page_size : int
         """
-        assert type(page) == int
-        assert page > 0
-        assert type(page_size) == int
-        assert page_size > 0
-
+        assert type(page) == int and page > 0
+        assert type(page_size) == int and page_size > 0
         start, end = index_range(page, page_size)
         self.__dataset = self.dataset() if None else self.__dataset
-        if start >= len(self.__dataset):
+
+        if start > len(self.__dataset):
             return []
-        
-        end  = len(self.__dataset) if end > len(self.__dataset) else end
+
+        end = len(self.__dataset) if end > len(self.__dataset) else end
         return self.__dataset[start:end]
