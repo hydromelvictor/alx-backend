@@ -60,7 +60,7 @@ class Server:
         page_size : int
         return : tuple
         """
-        data = get_page(page, page_size)
+        data = self.get_page(page, page_size)
         size = len(data)
         total_pages = math.ceil(size / page_size)
 
