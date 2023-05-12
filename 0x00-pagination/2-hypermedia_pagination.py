@@ -63,21 +63,13 @@ class Server:
         data = get_page(page, page_size)
         dataset = self.dataset()
         size = len(data)
-        sublist = []
-        lister = []
-        i = 0
-        for row in dataset:
-            i += 1
-            if len(sublist) < page_size or i == size:
-                sublist.append(row)
-            if len(sublist) == page_size or i == size:
-                lister.append(sublist)
+        total_pages = size // 2 if size % 2 == 0 else (size // 2) + 1
 
         return {
             "page_size": page_size,
             "page": page,
             "data": data,
-            "next_page": page + 1 if page < len(lister) else None,
+            "next_page": page + 1 if page < total_pages else None,
             "prev_page": page - 1 if page > 1 else None,
-            "total_pages": len(lister)
+            "total_pages": total_pages
         }
