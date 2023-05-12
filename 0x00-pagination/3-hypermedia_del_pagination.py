@@ -47,11 +47,11 @@ class Server:
         """
         assert type(index) == int and index >= 0
         assert type(page_size) == int and page_size >= 0
-        data = self.dataset()[index:index + page_size]
+        data = [i for i in self.indexed_dataset().values()]
 
         return {
             "index": index,
             "next_index": index + page_size,
             "page_size": page_size,
-            "data" : data
+            "data": data
         }
