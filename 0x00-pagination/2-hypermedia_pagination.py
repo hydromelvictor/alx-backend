@@ -5,7 +5,7 @@ integer arguments page and page_size.
 """
 import csv
 import math
-from typing import Tuple, List, Dict, Any
+from typing import Tuple, List, Dict
 
 
 def index_range(page: int, page_size: int) -> Tuple:
@@ -41,7 +41,6 @@ class Server:
         """
         page : int
         page_size : int
-        return : tuple
         """
         assert type(page) == int and page > 0
         assert type(page_size) == int and page_size > 0
