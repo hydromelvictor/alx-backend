@@ -45,9 +45,9 @@ class Server:
         page_size : int
         return : dict
         """
-        assert index >= 0
-        self.__dataset = self.dataset() if None else self.__dataset
-        data = self.__dataset[index:index + page_size]
+        assert type(index) == int and index >= 0
+        assert type(page_size) == int and page_size >= 0
+        data = self.dataset()[index:index + page_size]
 
         return {
             "index": index,

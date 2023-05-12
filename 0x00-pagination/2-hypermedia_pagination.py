@@ -54,7 +54,7 @@ class Server:
         end = size if end > size else end
         return data[start:end]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[int, Any]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """
         page : int
         page_size : int
