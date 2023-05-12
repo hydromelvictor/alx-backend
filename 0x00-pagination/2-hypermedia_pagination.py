@@ -41,6 +41,7 @@ class Server:
         """
         page : int
         page_size : int
+        return : tuple
         """
         assert type(page) == int and page > 0
         assert type(page_size) == int and page_size > 0
@@ -53,7 +54,7 @@ class Server:
         end = size if end > size else end
         return data[start:end]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Any]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """
         page : int
         page_size : int
