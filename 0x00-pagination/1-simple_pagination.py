@@ -45,10 +45,10 @@ class Server:
         assert type(page) == int and page > 0
         assert type(page_size) == int and page_size > 0
         start, end = index_range(page, page_size)
-        self.__dataset = self.dataset() if None else self.__dataset
-
-        if start >= len(self.__dataset):
+        data = self.dataset()
+        size = len(data)
+        if start >= size:
             return []
 
-        end = len(self.__dataset) if end > len(self.__dataset) else end
-        return self.__dataset[start:end]
+        end = size if end > size else end
+        return data[start:end]

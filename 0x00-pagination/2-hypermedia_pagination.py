@@ -46,13 +46,13 @@ class Server:
         assert type(page) == int and page > 0
         assert type(page_size) == int and page_size > 0
         start, end = index_range(page, page_size)
-        self.__dataset = self.dataset() if None else self.__dataset
-
-        if start >= len(self.__dataset):
+        data = self.dataset()
+        size = len(data)
+        if start >= size:
             return []
-        
-        end  = len(self.__dataset) if end > len(self.__dataset) else end
-        return self.__dataset[start:end]
+
+        end  = size if end > size else end
+        return data[start:end]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """
@@ -61,21 +61,23 @@ class Server:
         return : tuple
         """
         data = get_page(page, page_size)
+        dataset = self.dataset()
+        size = len(data)
         sublist = []
         lister = []
         i = 0
-        for row in self.__dataset:
+        for row in dataset:
             i += 1
-            if len(sublist) < page_size or i == len(self.__dataset):
+            if len(sublist) < page_size or i == size:
                 sublist.append(row)
-            if len(sublist) == page_size or i == len(self.__dataset):
+            if len(sublist) == page_size or i == size:
                 lister.append(sublist)
 
         return {
             "page_size": page_size,
             "page": page,
             "data": data,
-            "next_page": page + 1 if len(data) < len(self.__dataset) else None,
+            "next_page": page + 1 if len(data) < size else None,
             "prev_page": page - 1 if page > 1 else None,
             "total_pages": len(lister)
         }
