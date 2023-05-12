@@ -62,7 +62,7 @@ class Server:
         """
         data = get_page(page, page_size)
         size = len(data)
-        total_pages = size // 2 if size % 2 == 0 else (size // 2) + 1
+        total_pages = size // page_size if size % page_size == 0 else (size // page_size) + 1
 
         return {
             "page_size": page_size,
