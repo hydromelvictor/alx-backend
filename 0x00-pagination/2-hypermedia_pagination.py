@@ -61,7 +61,6 @@ class Server:
         return : tuple
         """
         data = get_page(page, page_size)
-        dataset = self.dataset()
         size = len(data)
         total_pages = size // 2 if size % 2 == 0 else (size // 2) + 1
 
