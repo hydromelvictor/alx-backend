@@ -51,7 +51,7 @@ class Server:
         if start >= size:
             return []
 
-        end  = size if end > size else end
+        end = size if end > size else end
         return data[start:end]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
@@ -68,9 +68,9 @@ class Server:
         i = 0
         for row in dataset:
             i += 1
-            if len(sublist) < page_size or i == size:
+            if len(sublist) < page_size or i == size - 1:
                 sublist.append(row)
-            if len(sublist) == page_size or i == size:
+            if len(sublist) == page_size or i == size - 1:
                 lister.append(sublist)
 
         return {
