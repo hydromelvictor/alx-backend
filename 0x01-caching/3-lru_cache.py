@@ -20,7 +20,7 @@ class LRUCache(BaseCaching):
         old = self.cache_data.copy()
         if key and item:
             size = len(self.cache_data)
-            if size >= BaseCaching.MAX_ITEMS:
+            while size >= BaseCaching.MAX_ITEMS:
                 for k, v in self.cache_data.items():
                     if k in old and v != old[k]:
                         del old[k]
