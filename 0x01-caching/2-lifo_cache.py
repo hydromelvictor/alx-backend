@@ -13,7 +13,7 @@ class LIFOCache(BaseCaching):
 
     def __init__(self):
         super().__init__()
-    
+
     def put(self, key, item):
         """
         key : element key
@@ -26,7 +26,7 @@ class LIFOCache(BaseCaching):
                 del self.cache_data[res]
                 print("DISCARD: {}".format(res))
             self.cache_data[key] = item
-    
+
     def get(self, key):
         """
         key : element key
