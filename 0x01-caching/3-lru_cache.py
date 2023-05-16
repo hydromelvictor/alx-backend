@@ -25,7 +25,7 @@ class LRUCache(BaseCaching):
                     if k in old and v != old[k]:
                         del old[k]
                 if key not in self.cache_data:
-                    res = old.keys()[0]
+                    res = sorted(old.keys())[0]
                     del self.cache_data[res]
                     print("DISCARD: {}".format(res))
             self.cache_data[key] = item
