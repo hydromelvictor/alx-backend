@@ -14,7 +14,7 @@ class MRUCache(BaseCaching):
     def __init__(self):
         super().__init__()
         self.old = {}
-    
+
     def put(self, key, item):
         """
         key : element key
@@ -24,13 +24,14 @@ class MRUCache(BaseCaching):
             size = len(self.cache_data)
             if size >= BaseCaching.MAX_ITEMS:
                 if key not in self.cache_data:
-                    res = sorted(self.old.items(), key=lambda t: t[1][1])[size - 1]
+                    res = sorted(self.old.items(),
+                                 key=lambda t: t[1][1])[size - 1]
                     del self.cache_data[res[0]]
                     del self.old[res[0]]
                     print("DISCARD: {}".format(res[0]))
             self.cache_data[key] = item
             self.old[key] = (item, datetime.now())
-    
+
     def get(self, key):
         """
         key : element key
