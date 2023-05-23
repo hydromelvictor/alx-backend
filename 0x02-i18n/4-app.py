@@ -29,8 +29,8 @@ def get_locale() -> Optional[Locale]:
 
 @app.route("/", strict_slashes=False)
 def run() -> Text:
-    """return templates/3-index.html"""
-    return render_template("3-index.html", lang=Config.BABEL_DEFAULT_LOCALE)
+    """return templates/4-index.html"""
+    return render_template("4-index.html", lang=Config.BABEL_DEFAULT_LOCALE)
 
 
 if __name__ == "__main__":
