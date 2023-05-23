@@ -16,7 +16,7 @@ class Config:
     LANGUAGES = ["en", "fr"]
 
 
-babel.default_locale = Config.LANGUAGES[0]
+babel.default_locale = "en"
 babel.default_timezone = timezone('UTC')
 
 
