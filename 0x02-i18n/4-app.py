@@ -19,8 +19,9 @@ class Config:
 
 
 @babel.localeselector
-def get_locale(locale: Locale =None) -> Optional[Locale]:
+def get_locale() -> Optional[Locale]:
     """get_locale"""
+    locale = request.args.get('locale')
     if locale:
         return locale
     return request.accept_languages.best_match(Config.BABEL_DEFAULT_LOCALE)
