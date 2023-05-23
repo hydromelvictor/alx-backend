@@ -3,8 +3,11 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 #
-msgid ""
-msgstr ""
+msgid "home_title"
+msgstr "Bienvenue chez Holberton"
+# variable
+msgid "home_header"
+msgstr "Bonjour monde!"
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-05-23 13:34+0000\n"
