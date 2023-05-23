@@ -14,10 +14,8 @@ class Config:
     configuration class
     """
     LANGUAGES = ["en", "fr"]
-
-
-babel.default_locale = "en"
-babel.default_timezone = timezone('UTC')
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
 @app.route("/", strict_slashes=False)
