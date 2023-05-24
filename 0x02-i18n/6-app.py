@@ -45,13 +45,19 @@ def get_locale():
     locale = request.args.get('locale')
     if locale:
         return locale
+    lang = request.args.get("login_as").get("locale")
+    if lang:
+        return lang
+    head = request.headers.get("locale")
+    if head:
+        return head
     return request.accept_languages.best_match(Config.BABEL_DEFAULT_LOCALE)
 
 
 @app.route("/", strict_slashes=False)
 def run():
-    """return templates/5-index.html"""
-    return render_template("5-index.html")
+    """return templates/6-index.html"""
+    return render_template("6-index.html")
 
 
 if __name__ == "__main__":
