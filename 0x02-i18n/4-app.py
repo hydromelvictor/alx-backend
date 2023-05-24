@@ -18,9 +18,9 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-#app.config.from_object(Config)
+# app.config.from_object(Config)
 @babel.localeselector
-def get_locale() -> Optional[Locale]:
+def get_locale():
     """get_locale"""
     locale = request.args.get('locale')
     if locale:
@@ -31,8 +31,8 @@ def get_locale() -> Optional[Locale]:
 @app.route("/", strict_slashes=False)
 def run() -> Text:
     """return templates/4-index.html"""
-    return render_template("4-index.html", lang=Config.BABEL_DEFAULT_LOCALE)
+    return render_template("4-index.html")
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(debug=True, port=5000)

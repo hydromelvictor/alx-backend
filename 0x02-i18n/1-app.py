@@ -19,10 +19,10 @@ class Config:
 
 
 @app.route("/", strict_slashes=False)
-def run() -> Text:
+def run():
     """return templates/1-index.html"""
-    return render_template("1-index.html", lang=babel.default_locale)
+    return render_template("1-index.html")
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(debug=True)

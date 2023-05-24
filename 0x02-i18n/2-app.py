@@ -19,16 +19,16 @@ class Config:
 
 
 @babel.localeselector
-def get_locale() -> Optional[Locale]:
+def get_locale():
     """get_locale"""
     return request.accept_languages.best_match(Config.BABEL_DEFAULT_LOCALE)
 
 
 @app.route("/", strict_slashes=False)
-def run() -> Text:
+def run():
     """return templates/2-index.html"""
-    return render_template("2-index.html", lang=Config.BABEL_DEFAULT_LOCALE)
+    return render_template("2-index.html")
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(debug=True)
