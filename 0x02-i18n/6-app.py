@@ -2,7 +2,8 @@
 """Creating a user login system is outside the scope of this project
 """
 from flask import Flask, render_template, request, localeselector, g
-from flask_babel import Babel
+from flask_babel import Babel, Locale
+from typing import Optional
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -39,7 +40,7 @@ def before_request():
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() ->Optional[Locale]:
     """get_locale"""
     locale = request.args.get('locale')
     if locale:
