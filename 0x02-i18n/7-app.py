@@ -3,6 +3,7 @@
 """
 from flask import Flask, render_template, request, localeselector, g
 from flask_babel import Babel
+from pytz import timezone
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -53,10 +54,16 @@ def get_locale():
     return request.accept_languages.best_match(Config.BABEL_DEFAULT_LOCALE)
 
 
+@babel.timezoneselector
+def get_timezone():
+    """timezone"""
+
+
+
 @app.route("/", strict_slashes=False)
 def run():
-    """return templates/6-index.html"""
-    return render_template("6-index.html")
+    """return templates/7-index.html"""
+    return render_template("7-index.html")
 
 
 if __name__ == "__main__":

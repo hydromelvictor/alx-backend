@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """First you will setup a basic Flask app in 0-app.py
 """
-from flask import Flask, render_template, request
-from flask_babel import Babel, Locale, timezone
-from typing import Optional, Text
+from flask import Flask, render_template
+from flask_babel import Babel
 
 app = Flask(__name__)
 babel = Babel(app)

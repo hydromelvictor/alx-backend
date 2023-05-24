@@ -2,8 +2,7 @@
 """First you will setup a basic Flask app in 0-app.py
 """
 from flask import Flask, render_template, request, localeselector
-from flask_babel import Babel, Locale, timezone
-from typing import Optional, Text
+from flask_babel import Babel
 
 app = Flask(__name__)
 babel = Babel(app)
