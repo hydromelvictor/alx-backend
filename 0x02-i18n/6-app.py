@@ -40,7 +40,7 @@ def before_request():
 
 
 @babel.localeselector
-def get_locale() ->Optional[Locale]:
+def get_locale():
     """get_locale"""
     locale = request.args.get('locale')
     if locale:
