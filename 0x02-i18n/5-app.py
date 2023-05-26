@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Creating a user login system is outside the scope of this project
 """
-from flask import Flask, render_template, request, localeselector, g
+from flask import Flask, render_template, request, g
 from flask_babel import Babel
 
 users = {
