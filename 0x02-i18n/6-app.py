@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Creating a user login system is outside the scope of this project
 """
-from flask import Flask, render_template, request, localeselector, g
+from flask import Flask, render_template, request, g
 from flask_babel import Babel, Locale
 from typing import Optional
 
@@ -48,9 +48,11 @@ def get_locale():
     locale = request.args.get('locale')
     if locale:
         return locale
-    lang = request.args.get("login_as").get("locale")
+    lang = request.args.get("login_as")
     if lang:
-        return lang
+        lang = lang.get(int(lang)).get("locale")
+        if lang in app.config['LANGUAGES']:
+            return lang
     head = request.headers.get("locale")
     if head:
         return head
