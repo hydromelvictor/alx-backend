@@ -17,6 +17,9 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+app.config.from_object(Config)
+
+
 @app.route("/", strict_slashes=False)
 def run():
     """return templates/1-index.html"""
